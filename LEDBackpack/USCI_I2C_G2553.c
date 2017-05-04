@@ -1,46 +1,11 @@
-//******************************************************************************
-//   MSP430 USCI I2C Transmitter and Receiver
-//
-//  Description: This code configures the MSP430's USCI module as 
-//  I2C master capable of transmitting and receiving bytes. 
-//
-//  ***THIS IS THE MASTER CODE***
-//
-//                    Master                   
-//                 MSP430F2619             
-//             -----------------          
-//         /|\|              XIN|-   
-//          | |                 |     
-//          --|RST          XOUT|-    
-//            |                 |        
-//            |                 |        
-//            |                 |       
-//            |         SDA/P3.1|------->
-//            |         SCL/P3.2|------->
-//
-// Note: External pull-ups are needed for SDA & SCL
-//
-// Uli Kretzschmar
-// Texas Instruments Deutschland GmbH
-// November 2007
-// Built with IAR Embedded Workbench Version: 3.42A
-//******************************************************************************
-#include "msp430g2553.h"                        // device specific header
+
+#include "msp430g2553.h"                  
 #include "USCI_I2C_G2553.h"
 
 signed char byteCtr;
 unsigned char *TI_receive_field;
 unsigned char *TI_transmit_field;
 
-//------------------------------------------------------------------------------
-// void TI_USCI_I2C_receiveinit(unsigned char slave_address, 
-//                              unsigned char prescale)
-//
-// This function initializes the USCI module for master-receive operation. 
-//
-// IN:   unsigned char slave_address   =>  Slave Address
-//       unsigned char prescale        =>  SCL clock adjustment 
-//-----------------------------------------------------------------------------
 void USCI_I2C_receiveinit(unsigned char slave_address, 
                              unsigned char prescale){
   P1SEL |= SDA_PIN + SCL_PIN;                 // Assign I2C pins to USCI_B0
@@ -56,15 +21,6 @@ void USCI_I2C_receiveinit(unsigned char slave_address,
   IE2 = UCB0RXIE;                            // Enable RX interrupt
 }
 
-//------------------------------------------------------------------------------
-// void TI_USCI_I2C_transmitinit(unsigned char slave_address, 
-//                               unsigned char prescale)
-//
-// This function initializes the USCI module for master-transmit operation. 
-//
-// IN:   unsigned char slave_address   =>  Slave Address
-//       unsigned char prescale        =>  SCL clock adjustment 
-//------------------------------------------------------------------------------
 void USCI_I2C_transmitinit(unsigned char slave_address, 
                           unsigned char prescale){
   P1SEL |= SDA_PIN + SCL_PIN;
@@ -80,14 +36,6 @@ void USCI_I2C_transmitinit(unsigned char slave_address,
   IE2 = UCB0TXIE;                            // Enable TX ready interrupt
 }
 
-//------------------------------------------------------------------------------
-// void TI_USCI_I2C_receive(unsigned char byteCount, unsigned char *field)
-//
-// This function is used to start an I2C commuincation in master-receiver mode. 
-//
-// IN:   unsigned char byteCount  =>  number of bytes that should be read
-//       unsigned char *field     =>  array variable used to store received data
-//------------------------------------------------------------------------------
 void USCI_I2C_receive(unsigned char byteCount, unsigned char *field){
   TI_receive_field = field;
   if ( byteCount == 1 ){
@@ -104,29 +52,12 @@ void USCI_I2C_receive(unsigned char byteCount, unsigned char *field){
     while (1);                                // illegal parameter
 }
 
-//------------------------------------------------------------------------------
-// void TI_USCI_I2C_transmit(unsigned char byteCount, unsigned char *field)
-//
-// This function is used to start an I2C commuincation in master-transmit mode. 
-//
-// IN:   unsigned char byteCount  =>  number of bytes that should be transmitted
-//       unsigned char *field     =>  array variable. Its content will be sent.
-//------------------------------------------------------------------------------
 void USCI_I2C_transmit(unsigned char byteCount, unsigned char *field){
   TI_transmit_field = field;
   byteCtr = byteCount;
   UCB0CTL1 |= UCTR + UCTXSTT;                 // I2C TX, start condition
 }
 
-//------------------------------------------------------------------------------
-// unsigned char TI_USCI_I2C_slave_present(unsigned char slave_address)
-//
-// This function is used to look for a slave address on the I2C bus.  
-//
-// IN:   unsigned char slave_address  =>  Slave Address
-// OUT:  unsigned char                =>  0: address was not found, 
-//                                        1: address found
-//------------------------------------------------------------------------------
 unsigned char USCI_I2C_slave_present(unsigned char slave_address){
   unsigned char ie2_bak, slaveadr_bak, ucb0i2cie, returnValue;
   ucb0i2cie = UCB0I2CIE;                      // restore old UCB0I2CIE
@@ -150,14 +81,6 @@ unsigned char USCI_I2C_slave_present(unsigned char slave_address){
                                               // a NACK occured
 }
 
-//------------------------------------------------------------------------------
-// unsigned char TI_USCI_I2C_notready()
-//
-// This function is used to check if there is commuincation in progress. 
-//
-// OUT:  unsigned char  =>  0: I2C bus is idle, 
-//                          1: communication is in progress
-//------------------------------------------------------------------------------
 unsigned char USCI_I2C_notready(){
   return (UCB0STAT & UCBBUSY);
 }
