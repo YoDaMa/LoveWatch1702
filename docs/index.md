@@ -3,8 +3,7 @@
 ### Yoseph Maguire, Yovahn Hoole, Chandler Burke
 
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
-<img src="https://octodex.github.com/images/yaktocat.png" alt="Drawing" width="200" height="200"/>
+<img src="https://octodex.github.com/images/yaktocat.png" alt="Image of Yaktocat" width="200" height="200"/>
 
 ## Abstract
 
