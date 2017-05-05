@@ -12,6 +12,7 @@ Oxygen is passed throughout the body by means of the hemoglobin in our blood. Th
 
 ### Physical Properties of Blood
 Pulse oximeters utilize the reflection and absorption of light to measure the oxygen saturation of a user’s blood. Oxygenated hemoglobin is distinctively red and deoxygenated hemoglobin is a distinctly dark blue. The optical properties of blood are highly dependent on the amount of oxygen within the body. When blood is exposed to a light source, the oxygenated hemoglobin content determines the amount of light that is absorbed and reflected back. As can be seen in Figure 1 the absorption of red light dips when exposed to oxygenated hemoglobin while the absorption of Infrared light drops when exposed to deoxygenated hemoglobin. 
+
 ![Image of Absorption](hemeabsorption.png)
 
 ### Measurements
@@ -29,6 +30,7 @@ The controller can be controlled via an Arduino library, making it easy to inter
 
 ### MAX30105 Particle Sensor
 The MAX30105 particle sensor include internal LEDs, photodetectors and ambient light rejection. The product is quite small and can easily be used for wearable devices such as the Love Watch 1702, fitting right under the wrist of the user. Furthermore the presence of ambient light rejection is an important feature for Love Watch since external light sources can easily interfere with the readings of the sensitive photodiodes needed to measure oxygenation. To preserve long battery life, the MAX30105 also allows for Ultra-Low Power operation.
+
 ![Image of MAX30105](https://github.com/YoDaMa/LoveWatch1702/img/max30105.jpg)
 
 ## I2C Communications
@@ -39,6 +41,7 @@ Both the MAX30105 particle sensor and the Adafruit LED Backpack utilize I2C comm
 
 
 ![Image of I2C](https://github.com/YoDaMa/LoveWatch1702/img/sparkfuni2c.png)
+
 Messages in I2C are broken up into two types of frames: an address frame and one or more data frames which are 8 bits each. In the address frame, the master indicates the address of the slave which should be receiving the message and in the data frames the master sends the actual message. To initiate the address frame, the master sends a start condition which notifies all slaves on the bus that a transmission is about to start. Following the address frame, master specifies an R/W bit indicating whether this following operation is a read or a write. Between each frame the recipient of the message sends an Acknowledge by the Receiver message. Once the Data Frames are sent the master also issues a stop condition which notifies the slave that the message has been sent and relinquishes control of the bus.
 
 #### MAX30105 Protocol
