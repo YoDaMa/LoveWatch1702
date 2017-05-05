@@ -5,6 +5,8 @@
 
 ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
+![Image of Absorption](https://raw.githubusercontent.com/YoDaMa/LoveWatch1702/master/img/stormtopus.png)
+
 ## Abstract
 
 Love Watch 1702 is a smart watch capable of measuring heart rate, oxygen saturation and most importantly the presence of loovvee. We three members of the Lonely Hearts Club, Yoseph Maguire, Yovahn Hoole and Chandler Burke have come up with a unique and state of the art system to help a user detect if they are in love by detecting a spike in heart rate. This research has far reaching consequences in protecting young ELECs from the distractions of college life.  
