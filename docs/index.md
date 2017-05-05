@@ -4,7 +4,7 @@
 
 
 ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
-<img src="https://octodex.github.com/images/yaktocat.png" alt="Drawing" style="width: 200px;"/>
+<img src="https://octodex.github.com/images/yaktocat.png" alt="Drawing" width="200" height="200"/>
 
 ## Abstract
 
