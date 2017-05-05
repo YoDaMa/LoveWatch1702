@@ -4,8 +4,7 @@
 
 
 ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
-
-![Image of Absorption](https://raw.githubusercontent.com/YoDaMa/LoveWatch1702/master/img/stormtopus.png)
+<img src="https://octodex.github.com/images/yaktocat.png" alt="Drawing" style="width: 200px;"/>
 
 ## Abstract
 
