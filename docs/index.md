@@ -77,12 +77,17 @@ After pivoting drastically due to the failure of the I2C MSP430 Library we wrote
 ![Image of Arduino Circuit](https://raw.githubusercontent.com/YoDaMa/LoveWatch1702/master/img/arduinocircuit.jpg)
 
 ## LoveWatch 1702 Demo Video
+
+
 [![LoveWatch Demo Video](http://img.youtube.com/vi/Q8MkQY-Fe9Y/0.jpg)](https://www.youtube.com/watch?v=Q8MkQY-Fe9Y "LoveWatch 1702 Demo")
 
 
 
 ## LoveWatch 1702 Presentation Video
-[![LoveWatch Presentation](http://img.youtube.com/vi/Q8MkQY-Fe9Y/0.jpg)](https://www.youtube.com/watch?v=Q8MkQY-Fe9Y "LoveWatch 1702 Demo")
+
+
+[![LoveWatch Presentation](http://img.youtube.com/vi/6aZnCzCC8C0/0.jpg)](https://youtu.be/6aZnCzCC8C0 "LoveWatch 1702 Presentation")
+
 
 ## References
 
